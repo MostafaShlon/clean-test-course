@@ -6,7 +6,7 @@ on:
       - lesson-2
 jobs:
   deploy:
-  needs: [unit_test]
+    needs: [unit_test]
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -37,6 +37,6 @@ jobs:
 
       - name: Run unit tests
         run: |
-          coverage run --source=./hangry_api pytest
+          coverage run --source=./hangry_api -m pytest
           coverage report
         working-directory: backend
