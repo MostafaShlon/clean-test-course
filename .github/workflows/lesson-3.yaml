@@ -12,11 +12,7 @@ jobs:
       run:
         working-directory: frontend
     steps:
-      - uses: actions/checkout@v7.0.1
+      - uses: actions/checkout@v4
       - run: npm install
       - name: Run functional tests
-        run: npm test
-
-  deploy:
-    needs: [function_test]
-    runs-on: ubuntu-latest
+        run: CI=true npm test -- --watch=false
